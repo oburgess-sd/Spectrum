@@ -1,0 +1,15 @@
+# define default database user, name, and password for PostgreSQL deployment
+auth:
+  enablePostgresUser: true
+  postgresPassword: "postgres_password"
+  username: "oburgess"
+  password: "example_password"
+  database: "spectrum_db"
+
+# The postgres helm chart deployment will be using PVC postgresql-data-claim
+primary:
+  persistence:
+    enabled: true
+    existingClaim: "postgresql-data-claim"
+  #configuration: |-
+  #  wal_level: 'logical'

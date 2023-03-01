@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume # Create a PV
+metadata:
+  name: localvolume # Sets PV's name
+  labels:
+    type: local-storage # Sets PV's type to local
+spec:
+  storageClassName: local-storage
+  capacity:
+    storage: 10Gi # Sets PV Volume
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/disk1/data" # Sets the volume's path
+    type: "DirectoryOrCreate"
